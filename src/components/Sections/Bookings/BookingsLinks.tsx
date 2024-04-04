@@ -11,7 +11,7 @@ interface BookingsLinksProps {
 const BookingsLinks: FC<BookingsLinksProps> = ({ link }) => {
   const handleCopyLink = () => {
     void navigator.clipboard.writeText(
-      `https://nextstop-demo.vercel.app/${link}`,
+      `https://nextstop-demo.vercel.app/book/${link}`,
     );
 
     toast.dismiss();
@@ -25,7 +25,7 @@ const BookingsLinks: FC<BookingsLinksProps> = ({ link }) => {
       <div className="flex flex-col pb-4">
         <span className="text-xs font-light">Booking Link</span>
         <span className="text-lg font-semibold">
-          nextstop-demo.vercel.app/{link}
+          nextstop-demo.vercel.app/book/{link}
         </span>
       </div>
 
