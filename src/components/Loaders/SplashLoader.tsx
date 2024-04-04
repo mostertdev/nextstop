@@ -15,7 +15,7 @@ const SplashLoader: FC = () => {
             alt="NextStop Icon"
             width={100}
             height={99}
-            className="size-20 animate-bounce"
+            className="size-32 animate-bounce"
           />
           <span className="text-4xl font-semibold text-[#1D1D1D]">
             loading...
