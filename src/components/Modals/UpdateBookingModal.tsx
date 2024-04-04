@@ -3,25 +3,20 @@ import { type FC } from "react";
 import Modal from "~/components/Base/Modal";
 
 interface UpdateBookingModalProps {
-  close?: () => void;
+  fetch: () => void;
+  close: () => void;
 }
 
-const UpdateBookingModal: FC<UpdateBookingModalProps> = ({ close }) => {
+const UpdateBookingModal: FC<UpdateBookingModalProps> = ({ fetch, close }) => {
   return (
     <Modal>
       <section className="w-[550px] p-10">
         <div className="mx-auto flex w-full max-w-xs flex-col items-center justify-center space-y-4">
           <h2 className="w-full text-xl font-medium text-[#2F1A44]">
-            Update a Booking
+            Update a Booking Dates
           </h2>
 
           <div className="relative w-full space-y-4">
-            <input
-              type="text"
-              className="w-full max-w-sm rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-[#2F1A44] focus:outline-[#1D1D1D]"
-              placeholder="Package"
-            />
-
             <div className="flex items-center justify-between space-x-4">
               <input
                 type="text"

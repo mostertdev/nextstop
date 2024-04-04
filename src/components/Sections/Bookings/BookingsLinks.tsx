@@ -1,15 +1,23 @@
 import { type FC } from "react";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 import Button from "~/components/Base/Button";
 
 interface BookingsLinksProps {
-  _?: never;
+  link?: string;
 }
 
-const BookingsLinks: FC<BookingsLinksProps> = () => {
+const BookingsLinks: FC<BookingsLinksProps> = ({ link }) => {
   const handleCopyLink = () => {
-    void navigator.clipboard.writeText("nextstop-demo.vercel.app/flux-hotel");
+    void navigator.clipboard.writeText(
+      `https://nextstop-demo.vercel.app/${link}`,
+    );
+
+    toast.dismiss();
+    toast.success("Link has been copied!", {
+      position: "top-center",
+    });
   };
 
   return (
@@ -17,7 +25,7 @@ const BookingsLinks: FC<BookingsLinksProps> = () => {
       <div className="flex flex-col pb-4">
         <span className="text-xs font-light">Booking Link</span>
         <span className="text-lg font-semibold">
-          nextstop-demo.vercel.app/flux-hotel
+          nextstop-demo.vercel.app/{link}
         </span>
       </div>
 

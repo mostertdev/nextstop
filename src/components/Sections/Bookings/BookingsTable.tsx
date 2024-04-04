@@ -5,11 +5,15 @@ import BookingsTableItem from "./BookingsTableItem";
 import UpdateBookingModal from "../../Modals/UpdateBookingModal";
 import DeleteBookingModal from "../../Modals/DeleteBookingModal";
 
+import type { Package, Booking } from "@prisma/client";
+
 interface BookingsTableProps {
-  _?: never;
+  bookings?: Booking[] & { package?: Package };
+  refetch: () => void;
 }
 
-const BookingsTable: FC<BookingsTableProps> = () => {
+const BookingsTable: FC<BookingsTableProps> = ({ bookings, refetch }) => {
+  const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
@@ -19,12 +23,30 @@ const BookingsTable: FC<BookingsTableProps> = () => {
         <BookingsTableHead />
 
         <tbody>
-          <BookingsTableItem />
+          {bookings?.map((b) => {
+            return (
+              <BookingsTableItem
+                key={b.id}
+                booking={b}
+                handleUpdate={() => {
+                  setSelectedBooking(b);
+                  setShowUpdateModal(true);
+                }}
+                handleDelete={() => {
+                  setSelectedBooking(b);
+                  setShowDeleteModal(true);
+                }}
+              />
+            );
+          })}
         </tbody>
       </table>
 
       {showUpdateModal && (
-        <UpdateBookingModal close={() => setShowUpdateModal(false)} />
+        <UpdateBookingModal
+          close={() => setShowUpdateModal(false)}
+          fetch={refetch}
+        />
       )}
 
       {showDeleteModal && (

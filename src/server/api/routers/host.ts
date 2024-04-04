@@ -13,7 +13,11 @@ export const hostRouter = createTRPCRouter({
       },
       include: {
         packages: true,
-        bookings: true,
+        bookings: {
+          include: {
+            package: true,
+          },
+        },
       },
     });
   }),
