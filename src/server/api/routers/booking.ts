@@ -32,8 +32,8 @@ export const bookingRouter = createTRPCRouter({
         data: {
           hostId: input.hostId,
           packageId: input.packageId,
-          checkIn: input.checkIn,
-          checkOut: input.checkOut,
+          checkIn: new Date(input.checkIn).toISOString(),
+          checkOut: new Date(input.checkOut).toISOString(),
           guestFullName: input.guestFullName,
           guestEmail: input.guestEmail,
           guestPhone: input.guestPhone,
