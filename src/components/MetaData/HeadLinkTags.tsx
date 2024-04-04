@@ -11,9 +11,9 @@ const HeadLinkTags: FC = () => {
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet"
       />
-      <link rel="icon" sizes="192x192" href="/assets/ns-icon.svg" />
-      <link rel="apple-touch-icon" href="/assets/ns-icon.svg" />
-      <link rel="mask-icon" href="/assets/ns-icon.svg" color="black" />
+      <link rel="icon" sizes="192x192" href="/assets/ns-icon.png" />
+      <link rel="apple-touch-icon" href="/assets/ns-icon.png" />
+      <link rel="mask-icon" href="/assets/ns-icon.png" color="black" />
     </>
   );
 };

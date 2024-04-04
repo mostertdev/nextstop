@@ -33,6 +33,12 @@ const config = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.discoverasr.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
